@@ -222,22 +222,26 @@ func goBuild(ctx Context) error {
 	if len(ldflags) > 0 {
 		flags := make([]string, len(ldflags))
 		for i, flag := range ldflags {
-			parts := strings.Split(flag, "-") // because there could be several -X flags
-			for _, p := range parts {
-				if strings.HasPrefix(p, "X") {
-					// We must rebuild cases
-					// if the user pass "-ldflags "-X A.B=C" so we need to set it to "-X=A.B=C"
-					// if the user pass "-ldflags "-X=A.B=C" so we should not change it
-					sp := strings.SplitN(p, " ", 1)
-					if len(sp) == 2 {
-						args = append(args, "-ldflags=-X="+sp[1])
+			if !strings.HasPrefix(flag, "-H") {
+				parts := strings.Split(flag, "-") // because there could be several -X flags
+				for _, p := range parts {
+					if strings.HasPrefix(p, "X") {
+						// We must rebuild cases
+						// if the user pass "-ldflags "-X A.B=C" so we need to set it to "-X=A.B=C"
+						// if the user pass "-ldflags "-X=A.B=C" so we should not change it
+						sp := strings.SplitN(p, " ", 1)
+						if len(sp) == 2 {
+							args = append(args, "-ldflags=-X="+sp[1])
+						} else {
+							args = append(args, "-ldflags=-"+p)
+						}
 					} else {
-						args = append(args, "-ldflags=-"+p)
+						// others flags can be set to GOFLAGS
+						flags[i] = "-ldflags=-" + p
 					}
-				} else {
-					// others flags can be set to GOFLAGS
-					flags[i] = "-ldflags=-" + p
 				}
+			} else {
+				args = append(args, "-ldflags="+flag)
 			}
 		}
 
@@ -265,7 +269,7 @@ func goBuild(ctx Context) error {
 		args = append(args, "-v")
 	}
 
-	//add package
+	// add package
 	args = append(args, ctx.Package)
 	runOpts := Options{
 		CacheEnabled: ctx.CacheEnabled,
