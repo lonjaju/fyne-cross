@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/fyne-io/fyne-cross/internal/log"
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/log"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 )
 
 const (
@@ -199,7 +199,7 @@ Options:
 type darwinFlags struct {
 	*CommonFlags
 
-	//Category represents the category of the app for store listing
+	// Category represents the category of the app for store listing
 	Category string
 
 	// TargetArch represents a list of target architecture to build on separated by comma

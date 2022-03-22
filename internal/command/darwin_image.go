@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/fyne-io/fyne-cross/internal/log"
-	"github.com/fyne-io/fyne-cross/internal/resource"
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/log"
+	"github.com/lonjaju/fyne-cross/internal/resource"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 	"golang.org/x/sys/execabs"
 )
 

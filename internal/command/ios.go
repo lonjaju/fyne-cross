@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/fyne-io/fyne-cross/internal/log"
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/log"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 )
 
 const (
@@ -156,10 +156,10 @@ Options:
 type iosFlags struct {
 	*CommonFlags
 
-	//Certificate represents the name of the certificate to sign the build
+	// Certificate represents the name of the certificate to sign the build
 	Certificate string
 
-	//Profile represents the name of the provisioning profile for this release build
+	// Profile represents the name of the provisioning profile for this release build
 	Profile string
 }
 

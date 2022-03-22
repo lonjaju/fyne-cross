@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/fyne-io/fyne-cross/internal/log"
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/log"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 )
 
 const (
@@ -218,11 +218,11 @@ type windowsFlags struct {
 	// Console defines if the Windows app will build as "console binary" instead of "GUI binary"
 	Console bool
 
-	//Certificate represents the name of the certificate to sign the build
+	// Certificate represents the name of the certificate to sign the build
 	Certificate string
-	//Developer represents the developer identity for your Microsoft store account
+	// Developer represents the developer identity for your Microsoft store account
 	Developer string
-	//Password represents the password for the certificate used to sign the build [Windows]
+	// Password represents the password for the certificate used to sign the build [Windows]
 	Password string
 }
 

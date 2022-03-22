@@ -6,8 +6,8 @@ import (
 	"path"
 	"path/filepath"
 
-	"github.com/fyne-io/fyne-cross/internal/log"
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/log"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 )
 
 const (
@@ -181,9 +181,9 @@ Options:
 type androidFlags struct {
 	*CommonFlags
 
-	Keystore     string //Keystore represents the location of .keystore file containing signing information
-	KeystorePass string //Password for the .keystore file
-	KeyPass      string //Password for the signer's private key, which is needed if the private key is password-protected
+	Keystore     string // Keystore represents the location of .keystore file containing signing information
+	KeystorePass string // Password for the .keystore file
+	KeyPass      string // Password for the signer's private key, which is needed if the private key is password-protected
 
 	// TargetArch represents a list of target architecture to build on separated by comma
 	TargetArch *targetArchFlag

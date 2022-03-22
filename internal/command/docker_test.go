@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/fyne-io/fyne-cross/internal/volume"
+	"github.com/lonjaju/fyne-cross/internal/volume"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sys/execabs"
 )
